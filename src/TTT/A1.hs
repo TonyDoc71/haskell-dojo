@@ -1,18 +1,22 @@
 module TTT.A1 where
 
 import Data.Char (toUpper)
+import Foreign (toBool)
 
 -- Q#01
 
-_SIZE_ = undefined
+_SIZE_ :: Int
+_SIZE_ = 3
 
 -- Q#02
 
-_DISPLAY_LOGO_ = undefined
+_DISPLAY_LOGO_ :: Bool
+_DISPLAY_LOGO_ = True
 
--- Q#03
+-- Q#03  up to here unsure about signature
 
-convertRowIndex = undefined
+convertRowIndex :: (Char -> Int)
+convertRowIndex = 
 
 -- Q#04
 
