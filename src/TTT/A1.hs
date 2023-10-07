@@ -13,18 +13,20 @@ _SIZE_ = 3
 _DISPLAY_LOGO_ :: Bool
 _DISPLAY_LOGO_ = True
 
--- Q#03  up to here unsure about signature
+-- Q#03  
 
-convertRowIndex :: (Char -> Int)
-convertRowIndex = 
+convertRowIndex :: Char -> Int
+convertRowIndex indexRow = fromEnum (toUpper indexRow) - 65
 
--- Q#04
+-- Q#04 may need to change to Char -> Int like above since row column coordinate will probably be A B C
 
-_INVALID_MOVE_ = undefined
+_INVALID_MOVE_ :: (Int,Int)
+_INVALID_MOVE_ = (-1 , -1)
 
 -- Q#05
 
-_SEP_ = undefined
+_SEP_ :: [Char]
+_SEP_ = ['_','|','_']
 
 -- Q#06
 
