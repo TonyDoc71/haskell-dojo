@@ -36,3 +36,25 @@ b = Red
 c :: PokemonTypes
 c = Squirtle
 
+
+
+d :: Float
+d = 2.3
+-- Float is a data Type for storing decimals
+
+
+
+getStarterPokeMon :: String -> String
+getStarterPokeMon t =
+    if t == "Fire"
+        then "Charmander"
+        else if t == "Water"
+            then "Squirtle"
+            else if t == "Grass"
+                then "Bulbasaur"
+                else "Picachu"
+
+
+e = getStarterPokeMon
+-- type e "Fire" in termional to get "Charmander"
+
