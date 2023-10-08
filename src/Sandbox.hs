@@ -1,5 +1,6 @@
 module Sandbox where
 import Foreign (IntPtr)
+import Text.Read (Lexeme(String))
 
 hello = "Hello World!"
 
@@ -42,19 +43,47 @@ d :: Float
 d = 2.3
 -- Float is a data Type for storing decimals
 
+guardsTest :: String -> String
+guardsTest e
+  | e == "A" = "THE LETTER A"
+  | e == "B" = "THE LETTER B"
+  | e == "C" = "THE LETTER C"
+  | otherwise = "SOME OTHER LETTER"
+
+-- Guards must always evaluate a bool 
+
+f = guardsTest
+-- type f "A" into terminal to return "THE LETTER A"
+
+caseExpressionTest :: String -> String
+caseExpressionTest g = case g of
+  "Q" -> "letter Q"
+  "W" -> " letter W"
+  _   -> "some other letter"
+
+h = caseExpressionTest
+-- type h "A" into terminal to return "some other letter"
+-- type caseExpressionTest "W" to retunr "letter W"
 
 
-getStarterPokeMon :: String -> String
-getStarterPokeMon t =
-    if t == "Fire"
-        then "Charmander"
-        else if t == "Water"
-            then "Squirtle"
-            else if t == "Grass"
-                then "Bulbasaur"
-                else "Picachu"
+caseExpressionBestPractice :: String -> String
+caseExpressionBestPractice "A" = "letter A"
+caseExpressionBestPractice "B" = "letter B"
+caseExpressionBestPractice "C" = "letter C"
+caseExpressionBestPractice _   = "some other letter"
 
+i = caseExpressionBestPractice
+-- type i "A" into terminal to return "letter A"
 
-e = getStarterPokeMon
--- type e "Fire" in termional to get "Charmander"
+conditionalLogicTest j =
+  if j == "X"
+    then "letter X"
+    else if j == "Y"
+      then "letter Y"
+      else if j == "Z"
+        then "letter Z"
+        else "some other letter"
+
+k = conditionalLogicTest
+-- type k or conditionalLogicTest "X" into terminal to  "letter X"
 
