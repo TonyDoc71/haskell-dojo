@@ -2,7 +2,7 @@ module TTT.A1 where
 
 import Data.Char (toUpper)
 import Foreign (toBool)
-import TTT.A3 (getAllLines)
+-- import TTT.A3 (getAllLines)
 
 -- Q#01
 
@@ -50,15 +50,7 @@ type Move = (Int, Int)
 
 -- Q#09
 
-getFirstPlayer :: Bool
-getFirstPlayer = True
-
-getFirstPlayer =
-    if getFirstPlayer == True
-        then "X"
-        else if getAllLines == False
-            then "O"
-            else "Flip Again"
+getFirstPlayer = undefined
 
 getFirstPlayer_ = undefined
 
