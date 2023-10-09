@@ -2,6 +2,7 @@ module TTT.A1 where
 
 import Data.Char (toUpper)
 import Foreign (toBool)
+import TTT.A3 (getAllLines)
 
 -- Q#01
 
@@ -30,17 +31,34 @@ _SEP_ = ['_','|','_']
 
 -- Q#06
 
-data Square
+data Square = X| O | Zs
+  deriving (Show, Eq)
 
 -- Q#07
 
-data GameState
+data GameState = X_won | O_won | Tie | Still_Playing
+  deriving (Show, Eq)
+
 
 -- Q#08
 
+type Player = Square
+type Row = [Square]
+type Line = [Square]
+type Board = [Row]
+type Move = (Int, Int)
+
 -- Q#09
 
-getFirstPlayer = undefined
+getFirstPlayer :: Bool
+getFirstPlayer = True
+
+getFirstPlayer =
+    if getFirstPlayer == True
+        then "X"
+        else if getAllLines == False
+            then "O"
+            else "Flip Again"
 
 getFirstPlayer_ = undefined
 

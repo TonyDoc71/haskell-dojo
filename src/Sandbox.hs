@@ -22,7 +22,7 @@ pikachu = ("Picachu", 25)
 -- above example of Type Synonyms  ** not creating a new data types Pname Pid & Pokemon 
 -- only for easy of reading**
 
-
+-- below creating new data types
 data Trainer = Ash | Misty | Brock
   deriving Show
 data Colour  = Red | Green | Blue
