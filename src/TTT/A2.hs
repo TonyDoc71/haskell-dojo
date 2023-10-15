@@ -7,7 +7,7 @@ import TTT.A1
 
 promptPlayer :: Player -> String
 promptPlayer player = 
-      "Player " ++ show player ++ "'s Turn: enter a row and column position"
+   "Player " ++ show player ++ "'s Turn: enter a row and column position"
 
 -- Q#02
 
@@ -19,9 +19,11 @@ _RANGE_ = [0..2]
 isDigit :: [[Char]] -> Bool
 isDigit = elem ['0'..'9']
 
-readDigit :: Char -> Int
+
 readDigit isDigit
-  |isDigit == True = read ( )
+  | isDigit >= 0 && isDigit <= 9 =  fromEnum isDigit 
+  | otherwise = -1
+
 
 
 
