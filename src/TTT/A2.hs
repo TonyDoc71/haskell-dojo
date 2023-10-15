@@ -3,19 +3,27 @@ module TTT.A2 where
 import Data.List (intercalate)
 import TTT.A1
 
--- Q#01
+-- Q#01    still need to complete
 
-promptPlayer = undefined
+promptPlayer :: Player -> String
+promptPlayer player = 
+      "Player " ++ show player ++ "'s Turn: enter a row and column position"
 
 -- Q#02
 
-_RANGE_ = undefined
+_RANGE_ :: [Int]
+_RANGE_ = [0..2]
 
 -- Q#03
 
-isDigit = undefined
+isDigit :: [[Char]] -> Bool
+isDigit = elem ['0'..'9']
 
-readDigit = undefined
+readDigit :: Char -> Int
+readDigit isDigit
+  |isDigit == True = read ( )
+
+
 
 -- Q#04
 
