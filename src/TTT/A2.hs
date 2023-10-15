@@ -5,9 +5,15 @@ import TTT.A1
 
 -- Q#01    still need to complete
 
-promptPlayer :: Player -> String
-promptPlayer player = 
-   "Player " ++ show player ++ "'s Turn: enter a row and column position"
+playerToString :: Player -> String
+playerToString X = "X"
+playerToString O = "O"
+playerToString Zs = "Zs"
+
+promptPlayer player = concat [ 
+  "Player ", playerToString player, "'s Turn: enter a row and column position" 
+  ]
+
 
 -- Q#02
 
