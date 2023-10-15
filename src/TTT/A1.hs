@@ -31,7 +31,7 @@ _SEP_ = ['_','|','_']
 
 -- Q#06
 
-data Square = X| O | Zs
+data Square = X | O | Zs
   deriving (Show, Eq)
 
 -- Q#07
@@ -50,18 +50,44 @@ type Move = (Int, Int)
 
 -- Q#09
 
-getFirstPlayer = undefined
+getFirstPlayer :: Bool -> Char
+getFirstPlayer t = 
+  if t == True
+    then 'X'
+    else if t == False
+      then 'O'
+      else 'X'
 
-getFirstPlayer_ = undefined
+
+getFirstPlayer_ :: Bool -> Char
+getFirstPlayer_  t
+  | t == True = 'X'
+  | t == False = 'O'
+  | otherwise = 'X'
+
+
 
 -- Q#10
 
-showGameState = undefined
+showGameState :: GameState -> String
+showGameState  t = case t of
+  X_won -> "X Won the game!"
+  O_won -> "O Won the game!"
+  Tie   -> "The game was a tie!"
+  Still_Playing    -> "Game in progress"
+
 
 -- Q#11
 
-switchPlayer = undefined
+switchPlayer :: Player -> Player
+switchPlayer  X = O
+switchPlayer O = X
+switchPlayer Zs = Zs
+
 
 -- Q#12
 
-showSquare = undefined
+showSquare :: Square -> String
+showSquare X = "X"
+showSquare O = "O"
+showSquare Zs = "_"
