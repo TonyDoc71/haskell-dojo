@@ -2,6 +2,7 @@ module TTT.A2 where
 
 import Data.List (intercalate)
 import TTT.A1
+import Text.Read (readMaybe)
 
 -- Q#01    still need to complete
 
@@ -22,22 +23,22 @@ _RANGE_ = [0..2]
 
 -- Q#03
 
-isDigit :: [[Char]] -> Bool
-isDigit = elem ['0'..'9']
+isDigit :: Char -> Bool
+isDigit c = elem c ['0'..'9']
 
 
-readDigit isDigit
-  | isDigit >= 0 && isDigit <= 9 =  fromEnum isDigit 
+readDigit :: Char -> Int
+readDigit c
+  | isDigit c = read [c]
   | otherwise = -1
-
-
-
 
 -- Q#04
 
-_EMPTY_ROW_ = undefined
 
-_EMPTY_BOARD_ = undefined
+_EMPTY_ROW_ = replicate _SIZE_ []
+
+
+_EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 
 -- Q#05
 
