@@ -3,16 +3,17 @@ module TTT.A2 where
 import Data.List (intercalate)
 import TTT.A1
 import Text.Read (readMaybe)
+import Control.Applicative (ZipList(ZipList))
 
--- Q#01    still need to complete
+-- Q#01    still need to complete??
 
 playerToString :: Player -> String
 playerToString X = "X"
 playerToString O = "O"
 playerToString Zs = "Zs"
 
-promptPlayer player = concat [ 
-  "Player ", playerToString player, "'s Turn: enter a row and column position" 
+promptPlayer player = concat [
+  "Player ", playerToString player, "'s Turn: enter a row and column position"
   ]
 
 
@@ -42,9 +43,16 @@ _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 
 -- Q#05
 
-isTied :: Board -> Bool
-isTied  = undefined
 
+
+
+isTied :: [Board] -> Bool
+isTied board 
+  | flattenList [] = [] -- :: Eq a => a -> [[a]] -> Bool
+  | flattenList (x:xs) = x ++ flattenList xs
+  | flattenedList = flattenList board 
+  | Zs `elem` [[board]] = False
+  | otherwise = True
 
 
 _TIED_BOARD_ :: Board
