@@ -46,13 +46,11 @@ _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 
 
 
-isTied :: [Board] -> Bool
-isTied board 
-  | flattenList [] = [] -- :: Eq a => a -> [[a]] -> Bool
-  | flattenList (x:xs) = x ++ flattenList xs
-  | flattenedList = flattenList board 
-  | Zs `elem` [[board]] = False
-  | otherwise = True
+--type Board = [[Square]]
+
+
+isTied :: Board -> Bool
+isTied board = all (\row -> all (/= Zs) row) board
 
 
 _TIED_BOARD_ :: Board
@@ -64,7 +62,12 @@ _TIED_BOARD_ = [
 
 -- Q#06
 
-indexRowStrings = undefined
+prefixForTuple = ['A'..]
+
+indexRoxStrings :: [a] -> [a] -> [[a]]
+indexRowStrings inputList  
+  | inputList [] = []
+  | inputList (x:xs) = 
 
 -- Q#07
 
