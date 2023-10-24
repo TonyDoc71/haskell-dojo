@@ -71,7 +71,10 @@ indexRowStrings inputStrings = zipWith (\a b -> (a, b)) ['A'..] inputStrings
 
 -- Q#07
 
-formatLine = undefined
+formatLine :: [[Char]] -> [Char]
+formatLine  x = _SEP_ ++ intercalate _SEP_ x ++ _SEP_
+
+
 
 -- Q#08
 
