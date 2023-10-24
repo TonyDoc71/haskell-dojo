@@ -1,6 +1,8 @@
 module Sandbox where
 import Foreign (IntPtr)
-import Text.Read (Lexeme(String))
+import Text.Read (Lexeme(String)) 
+import System.Random.Stateful 
+
 
 hello = "Hello World!"
 
@@ -86,4 +88,9 @@ conditionalLogicTest j =
 
 k = conditionalLogicTest
 -- type k or conditionalLogicTest "X" into terminal to  "letter X"
+
+-- cabal projects only -- import System.Random.Stateful
+-- only seems to work in terminal cabal repl  then import System...
+-- l_Num = uniformM globalStdGen :: IO Int 
+-- l_TH = (uniformM globalStdGen :: IO Int) >>= (\i -> if even i return "Heads" else return "Tails")
 
