@@ -62,12 +62,12 @@ _TIED_BOARD_ = [
 
 -- Q#06
 
-prefixForTuple = ['A'..]
 
-indexRoxStrings :: [a] -> [a] -> [[a]]
-indexRowStrings inputList  
-  | inputList [] = []
-  | inputList (x:xs) = 
+indexRowStrings :: [String] -> [(Char, String)]
+indexRowStrings inputStrings = zipWith (\a b -> (a, b)) ['A'..] inputStrings
+
+
+
 
 -- Q#07
 
