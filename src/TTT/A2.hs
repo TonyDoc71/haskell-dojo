@@ -78,7 +78,12 @@ formatLine  x = _SEP_ ++ intercalate _SEP_ x ++ _SEP_
 
 -- Q#08
 
-isMoveInBounds = undefined
+isMoveInBounds :: (Int,Int) -> Bool
+isMoveInBounds (x,y)
+     | x < 0 ||  y < 0 = False
+     | x < _SIZE_ &&  y < _SIZE_ = True
+     | x >= _SIZE_ || y >= _SIZE_ = False
+
 
 -- Q#09
 
