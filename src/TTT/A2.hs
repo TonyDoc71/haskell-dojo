@@ -87,8 +87,26 @@ isMoveInBounds (x,y)
 
 -- Q#09
 
-stringToMove = undefined
+stringToMove :: String -> Move
+stringToMove [] = _INVALID_MOVE_
+stringToMove [a,b] 
+  | readDigit b >= 4 = _INVALID_MOVE_
+  | convertRowIndex a >= 0 && readDigit b >= 1 = (convertRowIndex a, readDigit b)
+  | otherwise = _INVALID_MOVE_
+stringToMove _ = _INVALID_MOVE_
 
 -- Q#10
 
-replaceSquareInRow = undefined
+replaceSquareInRow :: Player -> Int -> Row -> Row
+replaceSquareInRow _ _ [] = [] 
+replaceSquareInRow player col row
+    | col >= 0 && col < length row =
+        let (before, (_:after)) = splitAt col row  
+        in before ++ [player] ++ after           
+    | otherwise = row  
+
+rsX :: Int -> Row -> Row
+rsX = replaceSquareInRow X
+
+rsO :: Int -> Row -> Row
+rsO = replaceSquareInRow O
