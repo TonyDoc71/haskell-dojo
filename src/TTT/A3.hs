@@ -6,7 +6,9 @@ import TTT.A2
 
 -- Q#01
 
-showInts = undefined
+showInts :: [Int] -> [String]
+showInts  [] = []
+showInts (x:xs) = show x : showInts xs
 
 _HEADER_ = undefined
 
