@@ -10,7 +10,8 @@ showInts :: [Int] -> [String]
 showInts  [] = []
 showInts (x:xs) = show x : showInts xs
 
-_HEADER_ = undefined
+_HEADER_ :: [Char]
+_HEADER_  = " " ++ formatLine (showInts _RANGE_)
 
 -- Q#02
 
