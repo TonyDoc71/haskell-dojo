@@ -21,7 +21,10 @@ showSquares (x:xs) = playerToString x : showSquares xs
 
 -- Q#03
 
-formatRows = undefined
+formatRows :: [[Square]] -> [[Char]]
+formatRows [] = []
+formatRows (fr:frs) = combine fr : formatRows frs where 
+  combine = formatLine . showSquares
 
 -- Q#04
 
