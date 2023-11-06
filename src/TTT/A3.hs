@@ -28,13 +28,23 @@ formatRows (fr:frs) = combine fr : formatRows frs where
 
 -- Q#04
 
-isColEmpty = undefined
+isColEmpty :: Row -> Int -> Bool
+isColEmpty [] _ = False
+isColEmpty (x:_) 0 = squareEmpty x
+isColEmpty (_:xs) col = isColEmpty xs (col - 1)
+
+squareEmpty :: Square -> Bool
+squareEmpty Zs = True
+squareEmpty _ = False
+
 
 -- Q#05
 
-dropFirstCol = undefined
+dropFirstCol :: [[a]] -> [[a]]
+dropFirstCol  df = [tail newList | newList <- df]
 
-dropLastCol = undefined
+dropLastCol :: [[a]] -> [[a]]
+dropLastCol dl = [init newList | newList <- dl]
 
 -- Q#06
 
