@@ -48,9 +48,20 @@ dropLastCol dl = [init newList | newList <- dl]
 
 -- Q#06
 
-getDiag1 = undefined
+getDiag1 :: [[a]] -> [a]
+getDiag1 [] = []
+getDiag1 ([]:_) = []
+getDiag1 ((x : xs): xss) = x : getDiag1 (map tail xss)
 
-getDiag2 = undefined
+getDiag2 :: [[a]] -> [a]
+getDiag2 [] = []
+getDiag2 ([]:_) = []
+getDiag2 newList 
+    | length newList < 3 = [] 
+    | length index /= length newList = [] 
+    | otherwise = zipWith (\x i -> x !! i) newList index 
+  where 
+    index = [2, 1, 0] 
 
 getAllLines = undefined
 
