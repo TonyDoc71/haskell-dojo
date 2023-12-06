@@ -53,6 +53,7 @@ getDiag1 [] = []
 getDiag1 ([]:_) = []
 getDiag1 ((x : xs): xss) = x : getDiag1 (map tail xss)
 
+
 getDiag2 :: [[a]] -> [a]
 getDiag2 [] = []
 getDiag2 ([]:_) = []
@@ -63,7 +64,13 @@ getDiag2 newList
   where 
     index = [2, 1, 0] 
 
-getAllLines = undefined
+
+getAllLines :: [[a]] -> [[a]]
+getAllLines board = rows ++ columbs ++ diagonals
+  where
+    rows = board
+    columbs = transpose board
+    diagonals = [getDiag1 board, getDiag2 board]
 
 -- Q#07
 
