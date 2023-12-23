@@ -74,7 +74,12 @@ getAllLines board = rows ++ columbs ++ diagonals
 
 -- Q#07
 
-putSquare = undefined
+putSquare :: Player -> Board -> Move -> Board
+putSquare _ [] _ = [] 
+putSquare player (row:restRows) (moveRow, moveCol)
+  | moveRow == 0 = replaceSquareInRow player moveCol row : restRows
+  | otherwise = row : putSquare player restRows (moveRow - 1, moveCol)
+
 
 -- Q#08
 
