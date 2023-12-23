@@ -104,7 +104,16 @@ isWinningLine player line = worker False line
       | square == player = worker True rest
       | otherwise = False 
 
-      
+
 -- Q#10
 
-isValidMove = undefined
+isValidMove :: Board -> Move -> Bool
+isValidMove board move
+  | not (isMoveInBounds move) = False
+  | otherwise = worker board move
+  where
+    worker :: Board -> Move -> Bool
+    worker [] _ = False  -- Base case: empty board
+    worker (row:restRows) (moveRow, moveCol)
+      | moveRow == 0 = isColEmpty row moveCol && head row == Zs
+      | otherwise = worker restRows (moveRow - 1, moveCol)
