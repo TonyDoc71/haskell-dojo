@@ -83,7 +83,14 @@ putSquare player (row:restRows) (moveRow, moveCol)
 
 -- Q#08
 
-prependRowIndices = undefined
+prependRowIndices :: [String] -> [String]
+prependRowIndices inputStrings = worker (indexRowStrings inputStrings)
+  where
+    worker :: [(Char, String)] -> [String]
+    worker [] = []  
+    worker ((indexChar, str):pairs) = (indexChar : str) : worker pairs
+
+
 
 -- Q#09
 
