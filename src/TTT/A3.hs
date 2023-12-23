@@ -113,7 +113,7 @@ isValidMove board move
   | otherwise = worker board move
   where
     worker :: Board -> Move -> Bool
-    worker [] _ = False  -- Base case: empty board
+    worker [] _ = False 
     worker (row:restRows) (moveRow, moveCol)
       | moveRow == 0 = isColEmpty row moveCol && head row == Zs
       | otherwise = worker restRows (moveRow - 1, moveCol)
