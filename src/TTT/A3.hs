@@ -94,8 +94,17 @@ prependRowIndices inputStrings = worker (indexRowStrings inputStrings)
 
 -- Q#09
 
-isWinningLine_ = undefined
+isWinningLine :: Player -> Line -> Bool
+isWinningLine _ [] = False 
+isWinningLine player line = worker False line
+  where
+    worker :: Bool -> Line -> Bool
+    worker acc [] = acc 
+    worker acc (square:rest)
+      | square == player = worker True rest
+      | otherwise = False 
 
+      
 -- Q#10
 
 isValidMove = undefined
